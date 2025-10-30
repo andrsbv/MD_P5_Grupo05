@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<ruleset name="MD_P5 Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.github.io/pmd-6.55.0/pmd-6.55.0.xsd">
+  <description>Reglas esenciales para el taller.</description>
+
+  <!-- Estilo / legibilidad -->
+  <rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName"/>
+  <rule ref="category/java/codestyle.xml/LongVariable"/>
+  <rule ref="category/java/codestyle.xml/FieldNamingConventions"/>
+  <rule ref="category/java/codestyle.xml/MethodNamingConventions"/>
+  <rule ref="category/java/codestyle.xml/ClassNamingConventions"/>
+
+  <!-- Buenas prácticas -->
+  <rule ref="category/java/bestpractices.xml/AvoidPrintStackTrace"/>
+  <rule ref="category/java/bestpractices.xml/SystemPrintln"/>
+
+  <!-- Errores comunes -->
+  <rule ref="category/java/errorprone.xml/CompareObjectsWithEquals"/>
+  <rule ref="category/java/errorprone.xml/NullAssignment"/>
+  <rule ref="category/java/errorprone.xml/UseEqualsToCompareStrings"/>
+
+  <!-- Complejidad / diseño -->
+  <rule ref="category/java/design.xml/ExcessiveMethodLength">
+    <properties>
+      <!-- máximo de líneas aceptables por método -->
+      <property name="minimum" value="80"/>
+    </properties>
+  </rule>
+
+  <rule ref="category/java/design.xml/CyclomaticComplexity">
+    <properties>
+      <property name="reportLevel" value="10"/>
+    </properties>
+  </rule>
+
+  <!-- Clases utilitarias deben tener ctor privado (provoca 1-2 hallazgos en HuffmanTree / SystemInfo) -->
+  <rule ref="category/java/design.xml/UseUtilityClass"/>
+</ruleset>
